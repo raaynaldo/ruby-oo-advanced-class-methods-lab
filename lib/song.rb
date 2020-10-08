@@ -1,3 +1,5 @@
+require 'pry'
+
 class Song
   attr_accessor :name, :artist_name
   @@all = []
@@ -42,8 +44,8 @@ class Song
   end
 
   def self.new_from_filename(file_name)
-    file = file_name.split(" - ")
-    new(file[1].split(".")[0], file[0])
+    file = file_name.split(/\.| - /)
+    new(file[1], file[0])
   end
 
   def self.create_from_filename(file_name)
